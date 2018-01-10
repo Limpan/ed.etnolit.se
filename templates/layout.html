@@ -2,7 +2,7 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Welcome{% endblock %} — Webbutveckling</title>
+  <title>{% block title %}Välkommen{% endblock %} — ed.etnolit.se</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -11,12 +11,20 @@
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="{{ '/static/normalize.css'|url }}">
-  <link rel="stylesheet" href="{{ '/static/skeleton.css'|url }}">
+  <link rel="stylesheet" href="{{ '/static/css/normalize.css'|url }}">
+  <link rel="stylesheet" href="{{ '/static/css/skeleton.css'|url }}">
   <link rel="stylesheet" href="{{ get_pygments_stylesheet()|url }}">
-  <link rel="stylesheet" href="{{ '/static/custom.css'|url }}">
+  <link rel="stylesheet" href="{{ '/static/css/custom.css'|url }}">
+
+  <script src="{{ '/static/js/anchorlinks.js'|url }}"></script>
 </head>
 <body>
+  <div class="container">
 {% block body %}{% endblock %}
+    <footer>Copyright &copy; Linus Törngren 2018-2020</footer>
+  </div>
+
+
+  <script async src="https://stat.etnolit.se/tracker.js" data-ackee-server="https://stat.etnolit.se" data-ackee-domain-id="55f49725-a7e4-4567-96ed-18f475cf2ba8"></script>
 </body>
 </html>

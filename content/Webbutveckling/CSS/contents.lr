@@ -1,0 +1,346 @@
+title: CSS
+---
+summary: x
+---
+sort_key: 30
+---
+body:
+
+Cascading Style Sheets (CSS) är ett språk för att skapa stilmallar. Syftet med
+detta är att kunna dela upp innehåll och presentation. Innehållet struktureras
+med HTML och presentationen styrs sedan av CSS.
+
+Med CSS kan flera HTML-filer använda samma stilmall.
+
+
+## Historia
+CSS har funnits sedan slutet av 1990-talet och har utvecklats i tre olika nivåer.
+Moderna webbläsare implementerar det mesta av de i nuläget 3 nivåerna.
+
+
+## Syntax
+En CSS-fil består av ett antal regler. En regel består av två delar:
+
+* En eller flera egenskaper med tillhörande värden som påverkar hur innehållet
+ska presenteras.
+* En selektor som väljer ut de element som ska påverkas av regeln.
+
+CSS-reglerna i en stilmall bestämmer hur HTML-filens innehåll ska presenteras.
+En stilmall kan se ut som nedan.
+
+```css
+h1 {
+  color: red;
+  background-color: yellow;
+}
+
+p {
+  color: green;
+}
+```
+
+Denna stilmall innehåller två regler. Den första regeln styr presentationen av
+alla `h1`-element och den innehåller två egenskaper `color` och `background-color`.
+Dessa styr utseendet så att texten blir röd och bakgrunden gul.
+Den andra regeln styr utseendet på alla `p`-element och den har en egenskap,
+`color`, som resulterar i att texten färgas grön.
+
+Deklarationen av egenskaper sker alltid i ett block som avgränsas av `{` och `}`.
+Mellan namnet och värdet måste det alltid finnas ett kolon, `:`, och mellan
+deklarationer av olika egenskaper måste man ha ett semikolon, `;`.
+Den sista deklarationen måste alltså inte avslutas med ett semikolon men det
+brukar alltid rekommenderas, annars riskerar du bara att glömma det senare.
+
+
+## Koppla CSS till HTML
+Det finns tre olika sätt att koppla ihop CSS och HTML.
+
+
+### Extern stilmall
+CSS-reglerna skrivs i en egen fil med filändelsen `.css` och en referens till
+denna skapas sedan med ett `link`-element i HTML-dokumentet.
+
+```html
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS-experiment</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p>Hello world!</p>
+  </body>
+</html>
+```
+
+Detta är det absolut bästa sättet att koppla stilmallar till HTML. Med denna
+metod kan flera HTML-dokument använda samma stilmall.
+
+
+### Intern stilmall
+CSS-reglerna kan placeras i ett `style`-element i HTML-dokumentet.
+
+```html
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS-experiment</title>
+    <style>
+      p {
+        color: green;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Hello world!</p>
+  </body>
+</html>
+```
+
+Detta kan vara användbart i vissa situationer. Kanske finns det bara ett dokument
+på din webbsida? Det kan också vara så att du inte har möjlighet att ändra i
+den externa stilmallen. Om du däremot har många HTML-dokument på din webbsida
+blir detta snabbt besvärligt då du måste skriva samma kod på flera olika ställen.
+
+
+### I HTML-taggar (inline)
+Om en CSS-regel bara ska påverka ett enda element kan man skriva den i
+HTML-taggens `style`-attribut.
+
+```html
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS-experiment</title>
+  </head>
+  <body>
+    <p style="color: red;">Hello world!</p>
+  </body>
+</html>
+```
+
+*Detta bör endast ses som en nödlösning!* Det är väldigt besvärligt att ändra
+CSS-regler som skrivits på detta vis då de riskerar att finnas utspridda på
+flera platser i flera filer. Kom ihåg att en av anledningarna till att vi har
+stilmallar är att dela upp innehåll och presentation. Detta är motsatsen till det!
+
+
+## Selektorer
+Selektorn står alltid framför ett deklarationsblock och de kan bli väldigt
+komplicerade, även om de oftast är av de enklare sorterna.
+
+
+### Enkla
+Matchar ett eller flera element baserat på dess *typ*, *klass* eller *id*.
+
+```css
+p {
+  color: blue;
+}
+
+div {
+  background-color: grey;
+}
+```
+
+Regler som matchar elementets typ använder som selektor namnet på taggen. Här
+matchar första regeln alla `p`-taggar och andra regeln alla `div`-taggar.
+
+För att skilja på selektorer som använder klass istället för typ används här
+en punkt, `.`, före namnet.
+
+```css
+.first {
+  text-transform: uppercase;
+}
+
+.header {
+  font-size: 2em;
+}
+```
+
+Dessa regler har selektorer som matchar element baserat på vilka värden
+attributet `class` har. Alla element med attributet `class` satt till `first`
+matchar den första regeln. Andra regeln matchar alla element med `class` satt
+till `header`.
+
+Värt att notera är att HTML-attributet `class` kan ha flera namn, de delas då
+upp av ett mellanslag.
+
+```html
+<p>Detta är <span class="large important">superviktigt</span>.</p>
+```
+
+Här tillhör `span`-elementet två klasser, `large` och `important`.
+
+Selektorer som använder HTML-elementens id har ett som prefix ett stakettecken, `#`.
+
+```css
+#header {
+  border-bottom: 2px solid black;
+}
+
+#portrait {
+  border: 1px solid blue;
+}
+```
+
+Här matchar den första regeln HTML-elementet med attributet `id` satt till `header`.
+Den andra regeln matchar det element som har värdet `portrait`.
+
+Förutom dessa enkla selektorer finns det även en joker-selektor, `*`, som
+matchar alla element i ett dokument.
+
+
+### Pseudoklasser
+Pseudoklasser är klasser som bara tillämpas på element när de är i ett visst
+tillstånd. Vanliga pseudoklasser är till exempel `hover` som bara tillämpas när
+användaren för muspekaren över elementet. Pseudoklasser skrivs med prefixet `:`
+och placeras i slutet på en vanlig selektor.
+
+
+```css
+a {
+  color: red;
+}
+
+a:visited {
+  color: red;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+```
+
+Första regeln ger alla länkar, i alla tillstånd, färgen röd. På grund av
+ordningen regler tillämplas i CSS behöver vi även en regel för selektorn
+`a:visited` för att inte länken ska byta färg när vi har besökt den.
+Den tredje regeln gör så att länken byter färg och understrykningen försvinner
+då muspekaren befinner sig ovanför den.
+
+För länkar finns det även två andra pseudoklasser, `:active` och `:focus` som
+kan behövas för att få önskat resultat. Mer om stilmallar för länkar kan du läsa
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links
+
+Det finns även pseudo-element som påminner mycket om pseudo-klasserna, dessa kan du läsa mer om i *Avancerad CSS*.
+
+
+### Multipla och kombinerade selektorer
+I en CSS-regel kan man ha multipla selektorer, dessa lägger man direkt efter
+varandra med ett kommatecken mellan, `,`. Regeln kommer då att matcha alla dessa
+selektorer.
+
+```css
+h1, h2, .rubrik {
+  font-family: Roboto, sans-serif;
+}
+```
+
+Denna regel matchar alltså alla `h1`-element, `h2`-element och alla element med
+klassen `rubrik`.
+
+Kombinerade selektorer ger en möjlighet att göra mer avancerade matchningar
+som även tar hänsyn till elementens placering i hierarkin. Enklaste matchningen
+är att helt enkelt bara skriva två selektorer efter varandra. Till exempel
+`header p` som då matchar alla `p`-element som är barn till `header`-element.
+Det finns också möjlighet att använda ett större än-tecken `>` mellan de båda
+selektorerna likt `footer > p` vilket då bara matchar alla `p`-element som är
+direkta barn till `footer`-element.
+
+```css
+header > p {
+  font-weight: bold;
+}
+
+.footer > p {
+  font-family: Roboto, sans-serif;
+}
+```
+
+
+## Värden och enheter
+I CSS finns det en uppsjö olika typer av värden. Ofta ställer ett attribut vissa
+krav på vilka typer av värden som ska anges.
+
+En fullständig lista finns på sidan [CSS Reference på MDN][MDN-CSSref]. Enheter
+anges med `<` och `>`, till exempel `<color>`.
+
+
+### Numeriska värden
+De numeriska värdena används väldit ofta i CSS och en av de allra vanligaste är
+`px` som står för pixlar. `px` är en absolut enhet eftersom värdet alltid har
+samma betydelse. Andra absoluta enheter är `mm`, `cm`, `in`, `pt` och `pc` men
+de används mycket sällan.
+
+```css
+p {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+img {
+  padding: 3px;
+  border: 1px solid red;
+}
+```
+
+Här sätts teckenstorlek och radavstånd för alla `p`-element till 16 respektive
+22 pixlar. Alla bilder får en 1 pixel bred ram på 3 pixlars avstånd från bilden.
+
+Numeriska värden kan även anges med ett antal relativa enheter. Enheterna kallas
+för relativa eftersom de har olika betydelse beroende på sammanhanget de anges i.
+De beror antingen på aktuellt elementets `font-size` eller det aktuella
+fönstrets storlek.
+
+`em` är bredden på ett M. `1em` är lika stort som elementets teckenstorlek.
+Webbläsarnas standardsstilmall har `font-size` satt till 16 pixlar men eftersom
+teckenstorleken ärvs av de olika elementen kan det mycket väl vara något annat.
+Ibland blir det väldigt komplicerat att lista ut hur många pixlar `em`-enheten
+motsvarar. `em` är den mest använda relativa enheten.
+
+Enheten `rem` (root `em`) fungerar på samma sätt som `em` förutom att den alltid
+utgår från dokumentets standardstorlek. `rem` ärvs alltså inte och är på det
+viset mycket lättare att förstå vilken motsvarigheten är i pixlar.
+
+`vw` (viewport width) och `vh` (viewport height) är en hundradel av viewportens
+bredd respektive höjd. Viewporten är den del av webbsidan som för tillfället syns.
+
+
+#### Enhetslösa värden
+Det finns även möjlighet att använda enhetslösa värden och då främst heltal och
+flyttal (ser ut som decimaltal). Vanligast är `0` som man oftast ser när man
+vill ta bort `margin` och `padding`. Det är bara vissa attribut som tillåts ha
+enhetslösa värden och förutom för värdet `0` är det bra att ta för vana att
+ange enhet.
+
+
+#### Procent
+Mått angivna med procent (`%`) utgår antingen från elementets förälders bredd
+eller från förälderns font-size.
+`100%` för `<body>`-elementet är som standardvärde samma bredd som viewporten.
+
+
+## Text
+
+Använd line-height enhetslöst.
+
+
+## Boxar
+Alla HTML-element är en box, en rektangel.
+
+
+## Normalize
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/CSS
+
+https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout
+
+[MDN-CSSref]: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference

@@ -1,0 +1,226 @@
+title: HTML
+---
+summary: x
+---
+sort_key: 20
+---
+body:
+
+Hypertext Markup Language (HTML) är det märkspråk som används för att skapa
+webbsidor. Filer som innehåller HTML använder oftast filändelsen `.html`.
+
+
+## Element
+HTML-sidor byggs upp av element som lite slarvigt brukar kallas för taggar.
+HTML-elementen gör det möjligt att skapa strukturerade dokument genom att
+markera semantiskt viktiga delar av dokumentet, till exempel rubriker, stycken,
+listor, och länkar.
+
+Ett HTML-element beskrivs med två taggar; en start-tag `<p>` och en
+slut-tag `</p>`. Om ett element innehåller text placeras det mellan starttaggen
+och sluttaggen. Mellan en starttag och sluttag kan man placera andra taggar
+tillsammans med texten om det behövs.
+
+Vissa element kallas för tomma (eng. _void element_) då de inte har något semantiskt meningsfullt
+innehåll. Ett exempel är radbrytning `<br>` där det inte är tillåtet med något
+innehåll, varken andra taggar eller text. De tomma elementen beskrivs med en
+tag, en starttag och saknar helt sluttag.
+
+## Attribut
+Ett element kan ha olika attribut som ändrar hur elementet beter sig. Vissa
+element har attribut som krävs men många attribut är helt frivilliga.
+Vanligtvis skrivs attribut som namn-värde-par med ett `=` mellan. Dessa
+namn-värde-par skrivs in i starttaggen efter namnet.
+
+```html
+<tag attribut="värde">innehåll som påverkas av taggen</tag>
+```
+
+Här är det HTML-elementet med namnet `tag` som får attributet `attribut` satt
+till värdet `värde`. Värdet skrivs mellan citattecken `"`. HTML-standarden
+tillåter att man istället använder apostrofer `'` eller för vissa typer av värden
+tillåter att de helt utelämnas. Rekommendationen är att alltid använda citattecken (`"`).
+
+De flesta taggarna kan ha följande vanliga attribut:
+* `id`-attributet används för att ge ett element ett för dokumentet unikt id.
+Dessa ska vara unika i hela dokumentet.
+* `class`-attributet används för att gruppera element. Oftast används
+`class`-attributet för att påverka presentationen av sidan. Detta görs genom
+att attributet används som CSS-selektor.
+De kan användas semantiskt där element ges en betydelse eller funktion genom
+`class`-attributet. Detta görs till exempel i microformats, se [Microformats][Wiki-Microformats].
+* `style`-attributet kan användas för att ändra presentationen med CSS.
+Detta bör användas mycket sparsamt, om alls.
+* `title`-attributet kan användas för en underliggande förklaring eller liknande.
+Oftast visas denna text av webbläsaren som en liten bubbla intill elementet.
+* `lang`-attributet kan användas för att ange ett annat naturligt språk än det
+som gäller för hela dokumentet. Vilka värden som kan användas kan du kolla upp
+med [Language subtag lookup][Language-subtag-lookup].
+
+Elementet `<abbr>` får här demonstrera hur det kan se ut.
+
+```html
+<abbr id="ettId" class="enKlass" style="color: red;" title="Hypertext Markup Language">HTML</abbr>
+```
+
+### Boolska attribut
+Det finns så kallade boolska attribut. Boolsk betyder att de bara har två värden,
+vanligtvis *sant* eller *falskt*. I det här sammanhanget handlar det om att de
+finns eller saknas, deras värde tas ingen hänsyn till och behöver därför inte anges.
+
+För elementet `<button>` finns attributet disabled:
+
+```html
+<button type="submit" disabled>Knapp som inte kan klickas på.</button>
+```
+
+
+## Struktur
+Ett HTML-dokument måste innehålla vissa delar.
+
+```html
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <title>Exempeltitel</title>
+  </head>
+  <body>
+    <p>Hello world!</p>
+  </body>
+</html>
+```
+
+
+### Kommentarer
+I HTML kan man göra kommentarer. En kommentar ignoreras helt när HTML-koden
+ska tolkas. En kommentar börjar med `<!--` och avslutas med `-->`.
+Kommentaren kan börja och sluta på samma eller olika rader.
+
+
+### Semantisk HTML
+Med semantisk HTML avses att använda HTML-elementen till det de är avsedda för.
+Det kan handla om att använda `<section>`, `<article>` och `<nav>` istället för den
+generiska `<div>`. Dessutom brukar semantisk HTML kräva att man lägger lite extra
+energi på val av klassnamn och id så att dessa ges värden med betydelse i det
+sammanhang de återfinns.
+
+
+### Implicit stängning av taggar
+I HTML är det i vissa situationer okej att utelämna sluttaggen då det går att
+räkna ut var den ska stå. Det kan handla om `<p>`-taggen eller `<li>`-taggen där
+det inte är tillåtet med flera nästlade direkt i varandra och man därför kan
+räkna ut att den öppna taggen måste avslutas innan en ny kan öppnas.
+
+Det är mycket bättre att vara explicit och skriva ut alla taggar.
+
+
+## DOM
+I en fil skriver vi innehåll och märker upp detta med HTML-taggar. När detta
+sedan läses in och tolkas av webbläsaren bygger den upp något som kallas för
+en DOM. DOM står för Document Object Model och här blir våra HTML-taggar till
+element. Det webbläsaren visar för användaren är alltså inte HTML-filen utan
+en tolkning av denna.
+
+## Vanliga taggar
+Det finns många olika HTML-taggar. Det finns en [referenslista hos MDN][HTML elements reference].
+I vanliga fall använder man långt ifrån alla dessa och det finns ingen anledning att lära sig alla taggar utantill.
+Nedan följer ett urval av taggar som man behöver känna till för att arbeta med HTML på ett bra sätt.
+
+### Dokumentstruktur
+Dessa taggar används för att skapa den struktur som standarden kräver. Utan dessa blir det svårt att skapa ett dokument
+som både är meningsfullt och följer standarden.
+
+Tagg | Beskrivning
+--- | ---
+`<html>` | Grundtaggen, roten, för hela dokumentet. Inga taggar får finnas utanför denna.
+`<head>` | Innehåller metadata om dokumentet som gör det möjligt för datorn att visa sidan på ett korrekt vis.
+`<link>` | Används för att beskriva en koppling mellan dokumentet och andra resurser. Vanligast är att det används för att länka till en stilmall men även ikoner.
+`<meta>` | Används till sådana metadata som ingen av de andra taggarna kan representera.
+`<title>` | Innehåller den titel som visas i webbläsarens flikar eller fönstrets titel.
+`<body>` | Dokumentets innehåll skrivs i `<body>`-taggen. Det får bara finnas en i varje HTML-fil och den måste ligga i `<html>`-taggen.
+
+### Rubriker
+För att skapa rubriker i ditt dokument används taggarna `<h1>`, `<h2>`, `<h3>` och så vidare till `<h6>`. `<h1>` används för
+huvudrubriker och de andra för rubriker på olika nivåer under dessa. Hoppa inte över nivåer! Om du gillar utseendet på en viss `h`-tagg så fixa detta med CSS istället.
+
+### Textstycken
+Ett textstycke skapas med `<p>`-taggen. Radbrytningar kan läggas in med `<br>`-taggen.
+
+### Betoningar
+Det är lite komplicerat med betoningar i text. På webben är det lite extra rörigt eftersom HTML utvecklats under åren.
+Ursprungligen fanns taggarna `<b>` och `<i>` för fet stil respektive kursiverad stil. När CSS introducerades ändrades
+synen på dessa taggar och i och med HTML5 och ett tankesätt där taggar ska beskriva innehållet inte presentationen.
+
+Tagg | Beskrivning
+--- | ---
+`<i>` | Används som *alternativ röst*. För tekniska termer, translittererad text, typografiskt kursiverad text. Mer om [&lt;i&gt; på WhatWG][i@whatwg]
+`<b>` | Används för *stilmässigt annorlunda* text, så som nyckelord eller typografiskt fetstilt text. Mer om [&lt;b&gt; på WhatWG][b@whatwg]
+`<em>` | Används för betoning. Detta är sånt som du hade uttalat annorlunda. Vill du ha en starkare betoning får du nästla flera `<em>`-taggar. Mer om [&lt;em&gt; på WhatWG][em@whatwg]
+`<strong>` | Används för att ange viktighet. `<strong>` markerar alltså att något är viktigt utan att du för den skull hade uttalat det annorlunda. Mer om [&lt;strong&gt; på WhatWG][strong@whatwg]
+
+Tänk på att det är enkelt att ändra utseendet med hjälp av CSS. Försök alltså välja den av de fyra taggarna som passar bäst i texten.
+
+### Ankare
+Taggen `<a>` med attributet `href` skapar en *hyperlänk* till en webbsida, fil, epostadress, annan del av sidan eller något annat som en URL kan peka på.
+Kom ihåg att det är viktigt att innehållet i `<a>`-taggen beskriver det som länken pekar på.
+
+### Listor
+Taggarna `<ol>` för *numrerad lista* och `<ul>` för *punktlista* används för de vanligaste typerna av listor. Dessa listor kan nästlas i flera nivåer.
+
+Tagg | Beskrivning
+--- | ---
+`<ol>` | Skapar en numrerad lista. Attributet `start` kan användas för att styra vilket värde numreringen av listan ska börja på.
+`<ul>` | Skapar en punktlista. CSS-egenskapen `list-style-type` kan användas för att bestämma vilken typ av punkt som ska användas.
+`<li>` | Används för att skapa varje listobjekt i listan. Den står alltså alltid inuti en `<ol>`- eller `<ul>`-tagg.
+
+### Citat
+Taggarna `<blockquote>` och `<q>` används för att märka upp citat. `<blockquote>` används när man vill bryta texten för
+ett citat, `<q>` när citatet ska stå i den löpande texten. Med attributet `cite` kan ange en URL som referens till
+källan.
+Med taggen `<cite>` kan man sedan ange en text som representerar källan.
+
+```html
+<blockquote cite="https://www-cs-faculty.stanford.edu/~knuth/">
+  <p>
+    Computers are good at following instructions, but not at reading your mind.
+  </p>
+  <footer><cite>Donald Knuth</cite></footer>
+</blockquote>
+```
+
+### Bilder
+Med `<img>`-taggen kan man lägga in bilder i HTML. Attributet `src` måste finnas och innehålla en URL till #bilden.
+`alt` är ett attribut som inte krävs men som är mycket lämpligt att sätta, det ska innehålla en kort #beskrivning av vad
+bilden föreställer.
+
+### Struktur
+Det finns ett antal taggar som på olika sätt kan användas för att skapa en meningsfull och användbar struktur i
+dokumentet. De flesta taggar har ett tydligt användningsområde och betydelse.
+
+Taggarna `<div>` och `<span>` kan användas när man **inte** vill ha någon särskild betydelse. Dessa är mer användbara än
+de verkar vid första ögonkastet.
+
+Tagg | Beskrivning
+--- | ---
+`<nav>` | En del av sidan som innehåller navigering för sajten. Vanliga exempel är menyer, innehållsförteckningar och *breadcrumbs*. Det kan finnas flera `<nav>`-taggar på sidan.
+`<header>` | En inledande del av sidan eller av en `<article>`-tagg. Innehåller ofta en titel, någon logotyp, en meny eller en sökruta. Används den tillsammans med `<article>` kan den innehålla titel och en ingress.
+`<footer>` | En avslutande del av sidan eller av en `<article>-tagg. Innehåller ofta information om författare eller upphovsrätt. När den används för hela sidan brukar den ofta innehålla kontaktuppgifter, en länkkarta, länkar till sociala medier eller länkar till hjälp.
+`<article>` | Representerar en fristående del av sidan. Till exempel ett inlägg på en blogg eller en nyhetsartikel. En artikel bör kunna identifieras, till exempel av en `<h1>`-`<h6>`-tagg. Författarens adress kan anges med `<address>`-taggen och tiden för publicering kan anges med `<time>`-taggen.
+`<section>` | En del av en artikel. Om innehållet representerar en fristående del av sidan är det troligtvis mer lämpligt att använda `<article>`.
+`<div>` | En generisk tagg. Ges ofta ett eller båda attributen `id` och `class`. Används ofta för att skapa en struktur som gör det möjligt att skriva vettiga CSS-regler.
+`<span>` | En generisk tagg för *inline*-innehåll. Användningen liknar `<div>`-taggens och används ofta för att kunna skriva CSS som ändrar utseendet på en del av en text.
+
+## Resurser
+
+https://developer.mozilla.org/en-US/docs/Web/HTML
+
+http://www.brucelawson.co.uk/2010/a-minimal-html5-document/
+
+[Wiki-Microformats]: https://en.wikipedia.org/wiki/Microformat
+[Language-subtag-lookup]: https://r12a.github.io/app-subtags/
+[HTML elements reference]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+[i@whatwg]: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element
+[b@whatwg]: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-b-element
+[em@whatwg]: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element
+[strong@whatwg]: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-strong-element

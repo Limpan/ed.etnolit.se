@@ -1,0 +1,12 @@
+_model: page
+---
+title: Webbutveckling
+---
+summary: Webbutveckling är en samling av alla de tekniker som används för att bygga applikationer på webben.
+---
+sort_key: 100
+---
+body:
+
+Webbutveckling är en samling av alla de tekniker som används för att bygga applikationer på webben. Det finns många
+tekniker som används och kärnan består av HTML, CSS och JavaScript.

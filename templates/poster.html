@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+  <header>
+    <h1>{{ this.title }}</h1>
+  </header>
+
+  {{ this.body }}
+
+  {% if this.children %}
+    {% for cols in this.children|sort(attribute='sort_key')|batch(2) %}
+      <div class="row">
+      {% for page in cols %}
+        <div class="six columns">
+          <h3><a href="{{ page|url }}">{{ page.title }}</a></h3>
+          {{ page.summary }}
+        </div>
+      {% endfor %}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

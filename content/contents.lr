@@ -1,3 +1,11 @@
-_model: index
+_model: poster
 ---
-title: Webbutveckling
+title: ed.etnolit.se
+---
+body:
+
+<p class="subtitle">Vad vill du lära dig om idag?</p>
+
+Här finns en del lärresurser för datavetenskap och olika tekniker som används
+på webben. Till att börja med kommer fokus ligga på olika webbtekniker och i
+förlängningen kommer fler områden att.

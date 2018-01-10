@@ -1,0 +1,32 @@
+title: Avancerad CSS
+---
+summary: x
+---
+sort_key: 80
+---
+body:
+
+Mer om CSS.
+
+## Selektorer
+
+### Kombinerade
+<code>&nbsp;</code>, `>`, `+`, `~`
+
+### Attribut
+`[attr]`
+`[attr=value]`
+`[attr~=value]`
+`[attr|=value]`
+`[attr^=value]`
+`[attr$=value]`
+`[attr*=value]`
+
+### Pseudo-klasser
+
+### Pseudo-element
+
+
+
+## Transparens
+rgba(), hsla(), opacity.

@@ -1,0 +1,212 @@
+title: Kommandon i terminalen
+---
+
+summary:
+Här är sammanfattning av några av de vanligaste kommandon som kan användas i de
+flesta linux- och unixsystem.
+---
+
+sort_key: 30
+---
+
+body:
+
+## Navigering och filhantering
+Precis som i windows finns det i linux filer och kataloger. För att navigera i
+hierarkin av kataloger behövs följande kommandon.
+
+### pwd
+Skriver ut den fullständiga sökvägen för den katalog som du befinner dig i.
+
+### cd
+`cd <katalog>` flyttar till den katalog som anges. `<katalog>` kan vara antingen
+en relativ eller absolut sökväg.
+
+### ls
+Listan innehållet i den katalog som du står i. Det finns flera användbara växlar.
+`-l` som visar en listning med mer detaljer och `-a` som även visar dolda filer.
+
+### mv
+Flyttar filer och kataloger. Kan även användas för att byta namn.
+`mv <gammalt> <nytt>`
+
+### cp
+Kopiera en fil eller katalog.
+Växeln `-R`kan användas för att kopiera en katalog och hela dess innehåll.
+
+### rm
+Raderar en eller flera filer. Med växeln `-R` kan även kataloger och deras
+innehåll raderas. Kom ihåg att i terminalen finns det ingen papperskorg!
+
+### mkdir
+Skapa en ny katalog. Med växeln `-P` kan flera nivåer av kataloger skapas på
+samma gång.
+
+### rmdir
+Radera en katalog. Notera 
+
+### cat
+
+### touch
+
+### chmod
+
+### chown
+
+### echo
+
+
+## Verktyg
+
+### clear
+
+### history
+
+### grep
+
+### find
+
+### whatis
+
+### whois
+
+### locate
+
+### man
+
+### tail
+
+### less
+
+
+## System
+
+### su
+
+### sudo
+
+### shutdown
+
+### service
+
+### crontab
+
+### ps
+
+### top
+
+### free
+
+### df
+
+### kill
+
+### mount
+
+### passwd
+
+### date
+
+
+## Installation av program
+
+### apt
+
+### apt-get
+
+### yum
+
+### rpm
+
+### dpkg
+
+
+## Filarkiv
+
+### tar
+
+### gzip
+
+### bzip2
+
+### unzip
+
+###
+
+
+## Nätverk
+
+### ifconfig
+
+### ifup
+
+### ifdown
+
+### lshw
+lshw -c network
+
+### ping
+
+### dig
+
+### ssh
+
+### ftp
+
+### wget
+
+### curl
+
+### ufw
+
+
+## Texteditorer
+
+### vim
+
+### nano
+
+
+## Kanske ska med?
+
+### sed
+
+### awk
+
+### diff
+
+### sort
+
+### export
+
+### xargs
+
+### chgrp
+
+### uname
+
+### dd
+
+### rsync
+
+### dmesg
+
+### netstat
+
+### lsblk
+
+### w
+
+### who
+
+### whoami
+
+### users
+
+### last
+
+### lsof
+
+### ln
+
+### alias

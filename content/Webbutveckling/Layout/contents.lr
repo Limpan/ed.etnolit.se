@@ -1,0 +1,168 @@
+title: Layout
+---
+summary: x
+---
+sort_key: 70
+---
+body:
+
+Layout handlar en sidas struktur. Denna beror förstås på vilket och hur
+mycket innehåll som ska kommuniceras. Det är dock viktigt att komma ihåg att
+en bra layout är nödvändig för att lyckas kommunicera med besökaren.
+
+
+## Olika layouter
+Grid
+Fluid vs fixed
+Responsive
+
+
+## Tabeller
+Under webbens tidigare år användes `table`-elementet för layout, det fanns helt
+enkelt inga alternativ. Eftersom `table`-elementets betydelse är att det
+innehåller tabulerade data ska vi inte använda det för layout.
+
+
+## Floats
+
+Under lång tid har `float`-attributet varit den teknik som kunnat användas för
+de layouter som innehåller flera olika kolumner. När `float`-attributet är satt
+placeras det till vänster eller till höger inuti sin förälder. Om flera element
+ska placeras längs med samma sida placeras de i första hand i horisontell ledd
+innan de placeras under de tidigare elementen med `float` satt.
+
+```html
+<section>
+  <div class="left">1</div>
+  <div class="left">2</div>
+  <div class="right">3</div>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Curabitur rutrum mattis nunc, et scelerisque
+    orci fermentum at. Nam non volutpat enim.
+  </p>
+</section>
+```
+
+```css
+section {
+  border: 1px solid black;
+}
+
+div {
+  margin: 2px;
+  width: 100px;
+  height: 70px;
+}
+
+.left {
+  float: left;
+  background-color: rgb(40, 200, 40);
+}
+
+.right {
+  float: right;
+  background-color: rgb(110, 0, 200);
+}
+```
+
+Här placeras två `div`-element till vänster och ett `div`-element till höger.
+Texten flödar sedan runt dessa. Detta ändrar sig med bredden på sidan.
+
+Det finns fyra värden förutom `none` för `float`:
+* `left` placerar elementet längs med vänsterkanten av föräldern.
+* `right` placerar elementet längs med högerkanten av föräldern.
+* `inline-start` placerar elementet längs med den sida som anses vara början på
+en textrad.
+* `inline-end` placerar elementet längs med den sida som anses vara slutet på
+en textrad.
+
+De två värdena `inline-start` och `inline-end` beror båda på vilken textriktning
+som används.
+
+Attributet `clear` avgör huruvida ett element kan vara bredvid ett element me
+`float` satt. Attributet kan sättas både på elemenet med `float` och de utan.
+Förutom de värden som `float` har kan `clear` även ha värdet `both`, då får
+elementet inte placeras bredvid något element med `float`.
+
+Eftersom element med `float` satt fortfarande befinner sig i sidflödet kan man
+ibland tvingas placera innehåll i *fel* ordning vilket inte är så lyckat. Det
+kan om inte annat leda till att sidan rankas lägre av sökmotortjänsterna.
+
+
+## Flexible box
+Ett modernt alternativ som försöker lösa många av de problem som finns med
+tabeller och floats är *flexible box layout* ofta förkortat till flexbox.
+
+Flexbox arbetar med en riktning i taget och de båda riktningarna anges med
+den *primära axeln* (eng. main axis) och den *sekundära axeln* (eng. cross axis).
+
+Den primära axeln bestäms av attributet `flex-direction` och den kan ha värdena
+`row`, `row-reverse`, `column` och `column-reverse`. `row` och `row-reverse` är
+horisontell riktning och `column` och `column-reverse` är vertikal riktning.
+Standarden för flexbox är definierad utan att utgå från att texten börjar uppe
+i vänstra hörnet och flödar horisontellt ner för sidan. Detta gör att riktningen
+på de båda axlarna är beroende av vilket språk som används.
+
+De flesta språken skrivs från vänster till höger (eng. left-to-right, LTR) och
+uppifrån och ner. Idag är de vanligaste språken som skrivs från höger till vänster
+(eng. right-to-left, RTL) arabiska, hebreiska, persiska och urdu. För dessa språk
+får alltså `row` och `row-reverse` omvänd riktning. Det är bra att undvika att
+tänka för mycket i termer av vänster-till-höger och mer i början-till-slutet,
+eftersom det varierar.
+
+För kinesiska, koreanska och japanska som ofta skrivs uppifrån och ner, höger
+till vänster (eng. top to bottom, right to left; TBRL) kan det förstås bli lite
+extra rörigt. Det finns några mer eller mindre utdöda språk som använder andra
+skrivriktningar.
+
+Den sekundära axeln är alltid vinkelrät mot den primära.
+
+
+### Flex container
+När ett element ges `display: flex` eller `display: inline-flex` kallas det för
+en *flex container* och alla elementets barn blir då automatiskt *flex items*.
+Alla flex items kommer att placeras längs den primära axeln och ta upp så mycket
+plats som deras innehåll kräver. I riktningen för den sekundära axeln kommer de
+att ha samma storlek som flex containern.
+
+
+### Flex wrap
+I huvudsak är flexbox tänkt att vara en modell som hanterar en riktning i taget
+men med `flex-wrap` finns det möjligheter att låta flex items delas upp över
+flera rader. Detta görs genom att ge attributet `flex-wrap` värdet `wrap` för
+flex containern.
+
+
+## Grid
+Ett annat av de nyare sätt att placera ut innehåll och skapa layouter är *grid
+layout*. Grid fungerar väldigt bra när man vill dela upp en sida i olika
+regioner som matchar ett rutnät.
+
+```html
+<div class="grid">
+  <div class="one">One</div>
+  <div class="two">Two</div>
+  <div class="three">Three</div>
+  <div class="four">Four</div>
+</div>
+```
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+```
+
+## Ramverk
+
+
+## Mobile first
+media-queries!
+
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout

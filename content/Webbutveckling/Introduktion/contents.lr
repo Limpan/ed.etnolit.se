@@ -1,5 +1,9 @@
 title: Introduktion
 ---
+summary: x
+---
+sort_key: 10
+---
 body:
 
 Webben bygger på flertalet tekniker. I sin enklaste form presenteras innehåll
@@ -11,7 +15,7 @@ serversidan (till exempel Javascript, Python, Ruby eller PHP) för att skapa
 interaktiva sidor eller sajter. Dessa lösningar med mer interaktivitet brukar
 kallas för dynamiska sajter.
 
-Det som skiljer webben från vanliga dokument och applikationer är länken. Det
+Det som skiljer webben från vanliga dokument och applikationer är *hyperlänken*. Det
 till synes enkla och idag självklara konceptet att man i ett dokument enkelt kan
 länka till ett annat, och möjligheten att följa denna, är det som gör webben unik.
 

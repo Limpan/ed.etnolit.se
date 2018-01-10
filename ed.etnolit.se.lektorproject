@@ -1,0 +1,12 @@
+[project]
+name = ed.etnolit.se
+
+[packages]
+lektor-markdown-highlighter = 0.1
+lektor-markdown-header-anchors = 0.3.1
+
+[servers.production]
+name = Production
+enabled = yes
+default = yes
+target = rsync://root@vps3.etnolit.se/srv/www/ed.etnolit.se

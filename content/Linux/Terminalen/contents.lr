@@ -1,0 +1,19 @@
+title: Terminalen
+---
+
+summary:
+Terminalen i är ett gränssnitt där man som användare skriver textkommandon till
+datorn. Den vanligaste skalprogrammet som används av terminalen är Bash.
+---
+
+sort_key: 20
+---
+body:
+
+## Prompten
+Kommandon, växlar
+
+Dolda filer . .. ~
+
+## Om bash, zsh, dash, fish
+!!, CTRL + r, >, >>, pipe

@@ -1,0 +1,54 @@
+title: Kaskaden
+---
+summary: x
+---
+sort_key: 36
+---
+body:
+
+Hur ska webbläsaren göra när ett element får flera olika värden till ett attribut från flera olika regler? Då
+måste det finnas tydliga regler för vilket värde som är viktigast. Det är denna ordning som kaskaden handlar om.
+
+
+## Tre delar
+Det är många delar som samspelar och det kan därför upplevas som ganska svårt. Oftast behöver
+
+1. Importance
+2. Specificity
+3. Source order
+
+
+### Source order
+När allt annat är lika är det ordningen som reglerna kommer i
+
+
+### Specificity
+
+
+### Importance
+* User-agent stylesheet
+* Author stylesheet
+* User stylesheet
+
+
+ | Origin | Importance
+--- | --- | ---
+1 | user agent | normal
+2 | user | normal
+3 | author | normal
+4 |	animations |
+5 |	author | `!important`
+6 |	user | `!important`
+7 |	user agent | `!important`
+8 |	transitions |
+
+
+## Använd inte `!important`
+
+
+## Arv
+
+
+
+
+[CSS Ref]: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference

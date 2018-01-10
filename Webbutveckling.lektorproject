@@ -1,5 +1,0 @@
-[project]
-name = Webbutveckling
-
-[packages]
-lektor-markdown-highlighter = 0.1

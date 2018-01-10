@@ -1,0 +1,35 @@
+title: Bra webb
+---
+summary: x
+---
+sort_key: 40
+---
+body:
+
+Vad är bra webb?
+
+
+## Syfte
+Att kommunicera
+
+## Principer för bra gränssnitt
+
+### Tillgänglighet
+
+### Mobile first
+
+## Designprinciper
+
+## Typografi
+Aldrig mindre än 16px textstorlek.
+
+
+## Tillgänglighet
+
+
+## Prestanda
+Optimering av resurser. Minifiering av kod. Bilder. HTTP2.
+
+
+
+https://caniuse.com/
