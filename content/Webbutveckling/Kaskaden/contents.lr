@@ -11,25 +11,65 @@ måste det finnas tydliga regler för vilket värde som är viktigast. Det är d
 
 
 ## Tre delar
-Det är många delar som samspelar och det kan därför upplevas som ganska svårt. Oftast behöver
+Det är många delar som samspelar och det kan därför upplevas som ganska svårt och krångligt. Utvecklarverktygen i
+webbläsaren är ett bra hjälpmedel för att förstå vilka regler som prioriteras. De tre delar som kaskaden består av är:
 
 1. Importance
 2. Specificity
 3. Source order
 
-
-### Source order
-När allt annat är lika är det ordningen som reglerna kommer i
+Vi går igenom dem i omvänd ordning.
 
 
-### Specificity
+## Source order
+När allt annat är lika är det ordningen i källkoden som gäller. En regel som står längre ner i en css-fil är viktigare.
+Detsamma gäller ordningen som css-filer länkats in i. Även där anses en fil som länkats in senare vara viktigare.
+
+Använder du en återställnings-CSS likt [Normalize.css], [minireset.css] eller [Reboot] är det viktigt att den länkas in först. Annars riskerar du att återställa dina egna regler!
 
 
-### Importance
-* User-agent stylesheet
-* Author stylesheet
-* User stylesheet
+## Specificity
+Med *specificity* menas den vikt som en CSS-regel får baserat på antalet selektortyper i den matchande selektorn.
 
+| Typ av selektor | Beskrivning
+--- | --- | ---
+1 | typ | Väljer element utifrån namn, till exempel `h1` eller `nav`. Även pseudo-element (exempelvis`::before`) tillhör denna kategori.
+2 | klass | Väljer element utifrån innehållet i `class`-attributet, till exempel `.exempel`. Här hör även attribut-selektorer (exempelvis `[type="radio"]`) och pseudoklasser (exempelvis `:hover`) hemma.
+3 | ID | Väljer element utifrån `id`-attributet, till exempel `#start`.
+
+Om två regler skulle få samma *specificity* används *source order* för att välja.
+
+Stilmallar som läggs till direkt i HTML-taggen (som `<span style="color: purple;">`) ersätter alltid alla externa
+stilmallar. Det är en god anledning att försöka lösa problemet på något annat vis.
+
+På [Specifishity] finns en illustration över hur det fungerar.
+
+
+## Importance
+Med *importance* menas den process som används när CSS-regler från flera källor ska kombineras.
+
+**User-agent stylesheet**<br>
+Varje webbläsare har en grundläggande stilmall inbyggd. En del webbläsare använder CSS-filer medans andra har den
+inbyggd i programkoden.
+
+Standarden har vissa begränsningar för hur denna stilmall får se ut men det finns stora möjligheter för utvecklarna av
+webbläsaren att välja utformning. Eftersom webbläsarna har lite olika standardutseende är det vanligt att använda någon
+form av CSS-återställare (exempelvis [Normalize.css], [minireset.css] eller [Reboot]).
+
+**Author stylesheet**<br>
+Den typ av stilmall som man vanligtvis tänker på. Dessa stilmallar bestämmer design och utseende för webbsidan och
+skapas av webbsidans skapare. Det vanligaste är externa stilmallar som länkas till HTML-filen men det kan även vara CSS
+skriven i `<style>`-taggen eller med `style`-attributet.
+
+**User stylesheet**<br>
+Användaren kan i vissa webbläsare göra egna stilmallar och anpassa presentationen utifrån sina egna förutsättningar.
+
+
+### Ordning
+Webbläsaren samlar ihop alla regler från olika källor. Sedan filtrerar den ut de regler som hör till ett visst element.
+
+Sen sorteras reglerna utifrån om de åtföljs av ett `!importance` och deras ursprung. Sorteringen görs enligt tabellen
+nedan. Regler med `!important` är viktigare än de utan.
 
  | Origin | Importance
 --- | --- | ---
@@ -42,13 +82,26 @@ När allt annat är lika är det ordningen som reglerna kommer i
 7 |	user agent | `!important`
 8 |	transitions |
 
+Om flera regler får samma *importance* används *specificity* för att avgöra vilken som ska väljas.
 
-## Använd inte `!important`
 
+## Innan du använder `!important`
+När `!important` används ersätter den alla andra regler. Att använda `!important` anses vara **dålig stil**! Eftersom det blir mycket svårare att felsöka bör `!important`
+undvikas in i det längsta!
+
+* Försök **alltid** använda *specificity* innan du ens tänker på `!important`.
+* Använd **endast** `!important` för CSS specifik för den aktuella sidan och som behöver ersätta CSS från främmande källor (exempelvis [Normalize.css] eller [Bootstrap])
+* Använd **aldrig** `!important` om du skriver CSS som andra förväntas använda!
+* Använd **aldrig** `!important` för CSS som gäller för hela din sajt!
 
 ## Arv
-
+När en
 
 
 
 [CSS Ref]: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+[Specifishity]: https://specifishity.com
+[Normalize.css]: https://necolas.github.io/normalize.css/
+[minireset.css]: https://github.com/jgthms/minireset.css
+[Reboot]: https://getbootstrap.com/docs/4.0/content/reboot/
+[Bootstrap]: https://getbootstrap.com
