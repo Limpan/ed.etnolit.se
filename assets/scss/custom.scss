@@ -1,3 +1,5 @@
+/* Linus Törngren | ed.etnolit.se */
+
 html {
   scroll-behavior: smooth;
 }
@@ -49,13 +51,13 @@ td {
 
 /* Sticky headers */
 .sticky-container {
+  margin-top: -1.6em;
 }
 
 .sticky-header {
   position: sticky;
   text-align: right;
   top: 1em;
-  height: 0px;
   opacity: 0;
 }
 
