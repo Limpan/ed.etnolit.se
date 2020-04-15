@@ -6,6 +6,10 @@ sort_key: 30
 ---
 body:
 
+
+#### ingress ####
+text:
+
 Cascading Style Sheets (CSS) är ett språk för att skapa stilmallar. Syftet med
 detta är att kunna dela upp innehåll och presentation. Innehållet struktureras
 med HTML och presentationen styrs sedan av CSS.
@@ -13,10 +17,16 @@ med HTML och presentationen styrs sedan av CSS.
 Med CSS kan flera HTML-filer använda samma stilmall.
 
 
+#### section ####
+text:
+
 ## Historia
 CSS har funnits sedan slutet av 1990-talet och har utvecklats i tre olika nivåer.
 Moderna webbläsare implementerar det mesta av de i nuläget 3 nivåerna.
 
+
+#### section ####
+text:
 
 ## Syntax
 En CSS-fil består av ett antal regler. En regel består av två delar:
@@ -52,9 +62,15 @@ Den sista deklarationen måste alltså inte avslutas med ett semikolon men det
 brukar alltid rekommenderas, annars riskerar du bara att glömma det senare.
 
 
+#### section ####
+text:
+
 ## Koppla CSS till HTML
 Det finns tre olika sätt att koppla ihop CSS och HTML.
 
+
+#### section ####
+text:
 
 ### Extern stilmall
 CSS-reglerna skrivs i en egen fil med filändelsen `.css` och en referens till
@@ -128,6 +144,9 @@ CSS-regler som skrivits på detta vis då de riskerar att finnas utspridda på
 flera platser i flera filer. Kom ihåg att en av anledningarna till att vi har
 stilmallar är att dela upp innehåll och presentation. Detta är motsatsen till det!
 
+
+#### section ####
+text:
 
 ## Selektorer
 Selektorn står alltid framför ett deklarationsblock och de kan bli väldigt
@@ -264,6 +283,9 @@ header > p {
 ```
 
 
+#### section ####
+text:
+
 ## Värden och enheter
 I CSS finns det en uppsjö olika typer av värden. Ofta ställer ett attribut vissa
 krav på vilka typer av värden som ska anges.
@@ -326,14 +348,29 @@ eller från förälderns font-size.
 `100%` för `<body>`-elementet är som standardvärde samma bredd som viewporten.
 
 
+#### section ####
+text:
+
+## Arv
+
+
+#### section ####
+text:
+
 ## Text
 
 Använd line-height enhetslöst.
 
 
+#### section ####
+text:
+
 ## Boxar
 Alla HTML-element är en box, en rektangel.
 
+
+#### section ####
+text:
 
 ## Normalize
 

@@ -6,11 +6,18 @@ sort_key: 20
 ---
 body:
 
+#### ingress ####
+text:
+
 Hypertext Markup Language (HTML) är det märkspråk som används för att skapa
 webbsidor. Filer som innehåller HTML använder oftast filändelsen `.html`.
 
 
-## Element
+#### section ####
+title: Element
+----
+text:
+
 HTML-sidor byggs upp av element som lite slarvigt brukar kallas för taggar.
 HTML-elementen gör det möjligt att skapa strukturerade dokument genom att
 markera semantiskt viktiga delar av dokumentet, till exempel rubriker, stycken,
@@ -26,7 +33,12 @@ innehåll. Ett exempel är radbrytning `<br>` där det inte är tillåtet med n�
 innehåll, varken andra taggar eller text. De tomma elementen beskrivs med en
 tag, en starttag och saknar helt sluttag.
 
-## Attribut
+
+#### section ####
+title: Attribut
+----
+text:
+
 Ett element kan ha olika attribut som ändrar hur elementet beter sig. Vissa
 element har attribut som krävs men många attribut är helt frivilliga.
 Vanligtvis skrivs attribut som namn-värde-par med ett `=` mellan. Dessa
@@ -75,7 +87,11 @@ För elementet `<button>` finns attributet disabled:
 ```
 
 
-## Struktur
+#### section ####
+title: Struktur
+----
+text:
+
 Ett HTML-dokument måste innehålla vissa delar.
 
 ```html
@@ -115,14 +131,23 @@ räkna ut att den öppna taggen måste avslutas innan en ny kan öppnas.
 Det är mycket bättre att vara explicit och skriva ut alla taggar.
 
 
-## DOM
+#### section ####
+title: DOM
+----
+text:
+
 I en fil skriver vi innehåll och märker upp detta med HTML-taggar. När detta
 sedan läses in och tolkas av webbläsaren bygger den upp något som kallas för
 en DOM. DOM står för Document Object Model och här blir våra HTML-taggar till
 element. Det webbläsaren visar för användaren är alltså inte HTML-filen utan
 en tolkning av denna.
 
-## Vanliga taggar
+
+#### section ####
+title: Vanliga taggar
+----
+text:
+
 Det finns många olika HTML-taggar. Det finns en [referenslista hos MDN][HTML elements reference].
 I vanliga fall använder man långt ifrån alla dessa och det finns ingen anledning att lära sig alla taggar utantill.
 Nedan följer ett urval av taggar som man behöver känna till för att arbeta med HTML på ett bra sätt.
@@ -211,7 +236,11 @@ Tagg | Beskrivning
 `<div>` | En generisk tagg. Ges ofta ett eller båda attributen `id` och `class`. Används ofta för att skapa en struktur som gör det möjligt att skriva vettiga CSS-regler.
 `<span>` | En generisk tagg för *inline*-innehåll. Användningen liknar `<div>`-taggens och används ofta för att kunna skriva CSS som ändrar utseendet på en del av en text.
 
-## Resurser
+
+#### section ####
+title: Resurser
+----
+text:
 
 https://developer.mozilla.org/en-US/docs/Web/HTML
 

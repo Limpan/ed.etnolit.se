@@ -6,10 +6,17 @@ sort_key: 70
 ---
 body:
 
+
+#### ingress ####
+text:
+
 Layout handlar en sidas struktur. Denna beror förstås på vilket och hur
 mycket innehåll som ska kommuniceras. Det är dock viktigt att komma ihåg att
 en bra layout är nödvändig för att lyckas kommunicera med besökaren.
 
+
+#### section ####
+text:
 
 ## Olika layouter
 Grid
@@ -17,11 +24,17 @@ Fluid vs fixed
 Responsive
 
 
+#### section ####
+text:
+
 ## Tabeller
 Under webbens tidigare år användes `table`-elementet för layout, det fanns helt
 enkelt inga alternativ. Eftersom `table`-elementets betydelse är att det
 innehåller tabulerade data ska vi inte använda det för layout.
 
+
+#### section ####
+text:
 
 ## Floats
 
@@ -90,6 +103,9 @@ ibland tvingas placera innehåll i *fel* ordning vilket inte är så lyckat. Det
 kan om inte annat leda till att sidan rankas lägre av sökmotortjänsterna.
 
 
+#### section ####
+text:
+
 ## Flexible box
 Ett modernt alternativ som försöker lösa många av de problem som finns med
 tabeller och floats är *flexible box layout* ofta förkortat till flexbox.
@@ -134,6 +150,9 @@ flera rader. Detta görs genom att ge attributet `flex-wrap` värdet `wrap` för
 flex containern.
 
 
+#### section ####
+text:
+
 ## Grid
 Ett annat av de nyare sätt att placera ut innehåll och skapa layouter är *grid
 layout*. Grid fungerar väldigt bra när man vill dela upp en sida i olika
@@ -157,8 +176,15 @@ regioner som matchar ett rutnät.
 }
 ```
 
+
+#### section ####
+text:
+
 ## Ramverk
 
+
+#### section ####
+text:
 
 ## Mobile first
 media-queries!

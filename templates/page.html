@@ -11,6 +11,12 @@
     {% for page in this.children %}
       <h2><a href="{{ page|url }}">{{ page.title }}</a></h2>
       <p>{{ page.summary }}</p>
+
+      <ul class="toc">
+      {% for item in page.body.toc %}
+        <li><a href="{{ page|url }}#{{ item.anchor }}">{{ item.title }}</a></li>
+      {% endfor %}
+      </ul>
     {% endfor %}
   {% endif %}
 

@@ -6,6 +6,10 @@ sort_key: 10
 ---
 body:
 
+
+#### ingress ####
+text:
+
 Webben bygger på flertalet tekniker. I sin enklaste form presenteras innehåll
 idag med [HTML][MDN-HTML] och [CSS][MDN-CSS]. Dessa sidor innehåller ingen eller mycket lite
 interaktivitet och brukar kallas för statiska sidor.
@@ -19,30 +23,41 @@ Det som skiljer webben från vanliga dokument och applikationer är *hyperlänke
 till synes enkla och idag självklara konceptet att man i ett dokument enkelt kan
 länka till ett annat, och möjligheten att följa denna, är det som gör webben unik.
 
+[MDN-HTML]: https://developer.mozilla.org/en-US/docs/Web/HTML
+[MDN-CSS]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[MDN-JS]: https://developer.mozilla.org/sv-SE/docs/Web/JavaScript
 
-### Flera tekniker
+
+#### section ####
+title: Flera tekniker
+---
+text:
+
+## Flera tekniker
 Förutom dessa grundtekniker finns det många fler tekniker, till exempel [SVG][MDN-SVG]
 som är ett format för vektorgrafik. Databashanterare av olika slag för att
 effektivt lagra data, till exempel [PostgreSQL][Wiki-PostgreSQL] och [Redis][Wiki-Redis].
 Olika ramverk som löser problem som man ofta stöter på, till exempel [Flask][Wiki-Flask] och [Bootstrap][Wiki-Bootstrap].
 
-
-### Historia
-Webben skapades på 1970-talet av Tim Berners-Lee vid CERN.
-
-
-### Framtiden
-Det finns idag många hinder och hot mot webben. Det handlar bland annat om deep
-web och dark web. Det faktum att större och större delar av webben är dolda.
-Många ogillar även den tradition av nätneutralitet, den egenskap som internet,
-nätverket under webben har haft sedan det skapades.
-
-
-[MDN-HTML]: https://developer.mozilla.org/en-US/docs/Web/HTML
-[MDN-CSS]: https://developer.mozilla.org/en-US/docs/Web/CSS
-[MDN-JS]: https://developer.mozilla.org/sv-SE/docs/Web/JavaScript
 [MDN-SVG]: https://developer.mozilla.org/en-US/docs/Web/SVG
 [Wiki-PostgreSQL]: https://en.wikipedia.org/wiki/Object-relational_database
 [Wiki-Redis]: https://en.wikipedia.org/wiki/Redis
 [Wiki-Flask]: https://en.wikipedia.org/wiki/Flask_(web_framework)
 [Wiki-Bootstrap]: https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)
+
+
+#### section ####
+text:
+
+## Historia
+Webben skapades på 1970-talet av Tim Berners-Lee vid CERN.
+
+
+#### section ####
+text:
+
+## Framtiden
+Det finns idag många hinder och hot mot webben. Det handlar bland annat om deep
+web och dark web. Det faktum att större och större delar av webben är dolda.
+Många ogillar även den tradition av nätneutralitet, den egenskap som internet,
+nätverket under webben har haft sedan det skapades.

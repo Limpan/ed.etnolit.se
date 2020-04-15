@@ -11,7 +11,11 @@ sort_key: 30
 
 body:
 
-## Navigering och filhantering
+#### section ####
+title: Navigering och filhantering
+---
+text:
+
 Precis som i windows finns det i linux filer och kataloger. För att navigera i
 hierarkin av kataloger behövs följande kommandon.
 
@@ -43,7 +47,7 @@ Skapa en ny katalog. Med växeln `-P` kan flera nivåer av kataloger skapas på
 samma gång.
 
 ### rmdir
-Radera en katalog. Notera 
+Radera en katalog. Notera
 
 ### cat
 
